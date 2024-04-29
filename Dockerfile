@@ -53,8 +53,10 @@ RUN mv /root/.symfony5/bin/symfony /usr/local/bin/symfony
 #add volume for app
 VOLUME /app
 
+#https://snyk.io/blog/10-best-practices-to-containerize-nodejs-web-applications-with-docker/
+RUN apt-get update && apt-get install -y --no-install-recommends dumb-init
 #set the default command
-CMD ["symfony", "serve"]
+CMD ["dumb-init", "symfony", "serve"]
 
 #expose port for smyfony serve
 EXPOSE 8000
