@@ -1,4 +1,4 @@
-FROM php:8.2
+FROM php:8.3
 
 # Use the default production configuration
 RUN mv "$PHP_INI_DIR/php.ini-development" "$PHP_INI_DIR/php.ini"
