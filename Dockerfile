@@ -56,7 +56,8 @@ VOLUME /app
 #https://snyk.io/blog/10-best-practices-to-containerize-nodejs-web-applications-with-docker/
 RUN apt-get update && apt-get install -y --no-install-recommends dumb-init
 #set the default command
-CMD ["dumb-init", "symfony", "serve"]
+
+CMD symfony server:stop && dumb-init symfony serve
 
 #expose port for smyfony serve
 EXPOSE 8000
